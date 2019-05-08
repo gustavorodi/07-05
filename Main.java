@@ -5,16 +5,19 @@ import java.io.IOException;
 
 public class Main {
     public static void main(String[] args) throws  IOException {
-        RabinKarp testeRabinKarp = new RabinKarp("Play");
-        Naive testNaive = new Naive("O mundo precisa de mais amor", "e");
+        RabinKarp testeRabinKarp = new RabinKarp("cousin");
+        Naive testNaive = new Naive("souvl");
 
-
-        System.out.println(testNaive.searchFile());
+        if(testNaive.busca()){
+            System.out.println("Achei, usando o Naive");
+        }else{
+            System.out.println("Nao achei, usando o Naive");
+        }
 
         if (testeRabinKarp.ler()) {
-            System.out.println("Achei");
+            System.out.println("Achei, usando o Rabinkarp");
         } else {
-            System.out.println("Não achei");
+            System.out.println("Nao achei, pelo RabinKary ");
         }
     }
 
