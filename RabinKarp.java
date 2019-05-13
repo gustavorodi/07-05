@@ -1,12 +1,15 @@
+
 /*package Rabin_Karp;*/
-import java.io.IOException;
 import java.math.BigInteger;
+import java.io.IOException;
 import java.nio.file.Files;
-import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.nio.file.Path;
 import java.util.HashMap;
-import 	java.util.List;
+import java.util.List;
 import java.util.Map;
+import java.io.File;
+
 public class RabinKarp {
 
   private Integer tamanhoPalavra;
@@ -15,7 +18,8 @@ public class RabinKarp {
   private Integer valorPalavra;
   private Integer valorFrase;
   private String temp;
-  public String palavra;
+  private String palavra;
+  private String diretorio;
 
   public RabinKarp(String palavra) {
     this.palavra = palavra;
@@ -37,14 +41,21 @@ public class RabinKarp {
     return false;
   }
 
-  /* for no array de nomes */
+  /* Acha o arquivo le e pula as linhas */
   public boolean ler() throws IOException {
-    Path path = Paths.get("C:\\Users\\Gustavo\\Desktop\\Estrutura de Dados\\Trabalho\\1H4.txt");
-    List<String> linhasArquivo = Files.readAllLines(path);
-    for (String linha : linhasArquivo) {
-        if(bucascando(linha)){
+    diretorio = "C:\\Users\\Gustavo\\Desktop\\Estrutura de Dados\\Trabalho\\Texto";
+    File file = new File(diretorio);
+    File nome[] = file.listFiles();
+
+    for (int j = nome.length, i = 0; i < j; i++) {
+      String arquivos = nome[i].getName();
+      Path path = Paths.get("C:\\Users\\Gustavo\\Desktop\\Estrutura de Dados\\Trabalho\\'"+arquivos+"'");
+      List<String> linhasArquivo = Files.readAllLines(path);
+      for (String linha : linhasArquivo) {
+        if (bucascando(linha)) {
           return true;
         }
+      }
     }
     return false;
   }
