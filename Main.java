@@ -17,18 +17,13 @@ public class Main {
         RabinKarp testeRabinKarp = new RabinKarp(chaveDeProdura);
         Naive testNaive = new Naive(chaveDeProdura);        
 
-        if(testNaive.busca()){
-            System.out.println("Achei, usando o Naive");
-        }else{
-            System.out.println("Nao achei, usando o Naive");
-        }
+        System.out.println("Iniciando a busca usando o Naive...\n\n");
+        testNaive.busca();
+        System.out.println("Fim da busca usando o Naive! \n\n");
 
-        if (testeRabinKarp.ler()) {
-            System.out.println("Achei, usando o Rabinkarp");
-        } else {
-            System.out.println("Nao achei, pelo RabinKary ");
-        }
-        
+        System.out.println("Iniciando a busca usando o Rabinkarp...\n\n");
+        testeRabinKarp.ler();
+        System.out.println("Fim da busca usando o RabinKary! ");
   
     }
     

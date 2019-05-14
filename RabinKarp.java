@@ -1,4 +1,3 @@
-
 /*package Rabin_Karp;*/
 import java.math.BigInteger;
 import java.io.IOException;
@@ -48,15 +47,16 @@ public class RabinKarp {
     File nome[] = file.listFiles();
 
     for (int j = nome.length, i = 0; i < j; i++) {
-      String arquivos = nome[i].getName();
-      Path path = Paths.get("C:\\Users\\Gustavo\\Desktop\\Estrutura de Dados\\Trabalho\\'"+arquivos+"'");
+      Path path = Paths.get("C:\\Users\\Gustavo\\Desktop\\Estrutura de Dados\\Trabalho\\Texto\\" + nome[i].getName());
       List<String> linhasArquivo = Files.readAllLines(path);
       for (String linha : linhasArquivo) {
         if (bucascando(linha)) {
+          System.out.println("ACHEI A PALAVRA NO ARQUIVO"+ nome[i].getName()+"\n\n");
           return true;
         }
       }
     }
+    System.out.println("NÃO ACHEI A PALAVRA NOS ARQUIVOS ");
     return false;
   }
 

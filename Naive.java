@@ -1,14 +1,17 @@
-import java.io.IOException;
 import java.math.BigInteger;
+import java.io.IOException;
 import java.nio.file.Files;
-import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.nio.file.Path;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.io.File;
 
 public class Naive {
     private String word;
+    private String diretorio;
+
 
     public Naive(String word) {
         this.word = word;
@@ -32,14 +35,22 @@ public class Naive {
     }
 
     public boolean busca() throws IOException {
-        Path path = Paths.get("C:\\Users\\Gustavo\\Desktop\\Estrutura de Dados\\Trabalho\\1H4.txt");
-        List<String> linhasArquivo = Files.readAllLines(path);
-        for (String linha : linhasArquivo) {
-            if(searchFile(linha)){
-              return true;
+        diretorio = "C:\\Users\\Gustavo\\Desktop\\Estrutura de Dados\\Trabalho\\Texto";
+        File file = new File(diretorio);
+        File nome[] = file.listFiles();
+    
+        for (int j = nome.length, i = 0; i < j; i++) {
+            Path path = Paths.get("C:\\Users\\Gustavo\\Desktop\\Estrutura de Dados\\Trabalho\\Texto\\" + nome[i].getName());
+            List<String> linhasArquivo = Files.readAllLines(path);
+            for (String linha : linhasArquivo) {
+                if(searchFile(linha)){
+                System.out.println("ACHEI A PALAVRA NO ARQUIVO"+ nome[i].getName()+"\n");
+                return true;
+                }
             }
+            
         }
+        System.out.println("NÃO ACHEI A PALAVRA NOS ARQUIVOS ");
         return false;
-      }
-
+    }  
 }
