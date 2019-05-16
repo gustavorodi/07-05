@@ -1,3 +1,4 @@
+
 /*package Rabin_Karp;*/
 import java.math.BigInteger;
 import java.io.IOException;
@@ -40,7 +41,7 @@ public class RabinKarp {
     return false;
   }
 
-  /* Acha o arquivo le e pula as linhas */
+  /* Acha o arquivo para pular linha */
   public boolean ler() throws IOException {
     diretorio = "C:\\Users\\Gustavo\\Desktop\\Estrutura de Dados\\Trabalho\\Texto";
     File file = new File(diretorio);
@@ -51,7 +52,7 @@ public class RabinKarp {
       List<String> linhasArquivo = Files.readAllLines(path);
       for (String linha : linhasArquivo) {
         if (bucascando(linha)) {
-          System.out.println("ACHEI A PALAVRA NO ARQUIVO"+ nome[i].getName()+"\n\n");
+          System.out.println("ACHEI A PALAVRA NO ARQUIVO ->" + nome[i].getName());
           return true;
         }
       }

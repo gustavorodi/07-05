@@ -6,25 +6,32 @@ import java.io.IOException;
 import java.io.File;
 
 public class Main {
-    public static void main(String[] args) throws  IOException {
-        
-        
-      
+    public static void main(String[] args) throws IOException {
+
         Scanner leitor = new Scanner(System.in);
         System.out.print("Escolha uma palavra para ser utilizada para pesquisa:\n");
         String chaveDeProdura = leitor.nextLine();
 
         RabinKarp testeRabinKarp = new RabinKarp(chaveDeProdura);
-        Naive testNaive = new Naive(chaveDeProdura);        
+        Naive testNaive = new Naive(chaveDeProdura);
+        Time contando = new Time();
 
-        System.out.println("Iniciando a busca usando o Naive...\n\n");
+        System.out.println("\n**************************************");
+        System.out.println("Iniciando a busca usando o Naive...");
+        contando.comecar();
         testNaive.busca();
-        System.out.println("Fim da busca usando o Naive! \n\n");
+        contando.parar("Naive");
+        System.out.println("Fim da busca usando o Naive! ");
+        System.out.println("**************************************");
 
-        System.out.println("Iniciando a busca usando o Rabinkarp...\n\n");
+        System.out.println("**************************************");
+        System.out.println("Iniciando a busca usando o Rabinkarp...");
+        contando.comecar();
         testeRabinKarp.ler();
+        contando.parar("Naive");
         System.out.println("Fim da busca usando o RabinKary! ");
-  
+        System.out.println("**************************************");
+
     }
-    
+
 }
